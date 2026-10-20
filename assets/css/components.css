@@ -1,0 +1,423 @@
+/* ---------- 進み具合（10本の指の色） ---------- */
+.progress__seg {
+  background: var(--color-line);
+  transition: background-color 0.5s var(--ease-quiet);
+}
+
+.progress__seg:nth-child(1).is-reached { background: var(--c1); }
+.progress__seg:nth-child(2).is-reached { background: var(--c2); }
+.progress__seg:nth-child(3).is-reached { background: var(--c3); }
+.progress__seg:nth-child(4).is-reached { background: var(--c4); }
+.progress__seg:nth-child(5).is-reached { background: var(--c5); }
+.progress__seg:nth-child(6).is-reached { background: var(--c6); }
+.progress__seg:nth-child(7).is-reached { background: var(--c7); }
+.progress__seg:nth-child(8).is-reached { background: var(--c8); }
+.progress__seg:nth-child(9).is-reached { background: var(--c9); }
+.progress__seg:nth-child(10).is-reached { background: var(--c10); }
+
+/* ---------- 表紙 ---------- */
+.cover__logo {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(72px, 14vw, 232px);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+}
+
+.cover__sub {
+  display: block;
+  margin-top: 1.2rem;
+  font-size: clamp(13px, 1.2vw, 17px);
+  letter-spacing: 0.5em;
+  color: var(--color-ink-soft);
+}
+
+.cover__catch {
+  font-size: clamp(22px, 3vw, 46px);
+  line-height: 1.7;
+  letter-spacing: 0.12em;
+}
+
+.cover__phrase {
+  display: block;
+}
+
+.cover__note {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  color: var(--color-ink-soft);
+}
+
+.cover__plate img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* ---------- 見出し（共通） ---------- */
+.preface__en,
+.reserve__en,
+.info__en {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 128px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+}
+
+.preface__ja,
+.reserve__ja,
+.info__ja {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-ink);
+  font-size: 14px;
+  letter-spacing: 0.5em;
+}
+
+.preface__text {
+  font-size: clamp(16px, 1.5vw, 22px);
+  line-height: 2.3;
+}
+
+.preface__text p + p {
+  margin-top: 1.6em;
+}
+
+/* ---------- 十指の目次（手の図） ---------- */
+.handmap__hands {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 6vw, 96px);
+}
+
+.handmap__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+@media (max-width: 767px) {
+  .handmap__hands {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.handmap__bar {
+  fill: none;
+  stroke: var(--color-ink-soft);
+  stroke-width: 1;
+}
+
+.handmap__finger {
+  cursor: pointer;
+}
+
+.handmap__nail {
+  transition: transform 0.4s var(--ease-quiet);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.handmap__num {
+  font-family: var(--font-display);
+  font-size: 16px;
+  fill: var(--color-ink-soft);
+}
+
+.handmap__label {
+  font-family: var(--font-note);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  fill: var(--color-ink-soft);
+}
+
+.handmap__finger.is-current .handmap__bar {
+  stroke: var(--color-ink);
+  stroke-width: 2;
+}
+
+.handmap__finger.is-current .handmap__nail {
+  transform: scale(1.18);
+}
+
+.handmap__finger.is-current .handmap__num {
+  fill: var(--color-ink);
+}
+
+.handmap__finger:hover .handmap__bar,
+.handmap__finger:focus-visible .handmap__bar {
+  stroke: var(--color-ink);
+}
+
+.handnav__map {
+  width: min(100%, 980px);
+  margin-inline: auto;
+}
+
+/* ---------- 章 ---------- */
+.chapter__num {
+  font-family: var(--font-display);
+  font-size: clamp(120px, 22vw, 340px);
+  line-height: 0.8;
+  letter-spacing: 0.02em;
+  color: var(--chapter);
+  margin-bottom: clamp(20px, 3vw, 48px);
+}
+
+.chapter--f .chapter__num {
+  color: var(--color-pearl);
+}
+
+.chapter__frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-line);
+}
+
+.chapter__frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.chapter--d .chapter__frame img {
+  aspect-ratio: 1 / 1;
+}
+
+.chapter__caption {
+  margin-top: 14px;
+  font-family: var(--font-note);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--color-ink-soft);
+}
+
+.chapter--f .chapter__caption {
+  color: var(--color-night-soft);
+}
+
+.chapter__finger {
+  font-family: var(--font-note);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--color-ink-soft);
+}
+
+.chapter--f .chapter__finger {
+  color: var(--color-night-soft);
+}
+
+.chapter__title {
+  margin-top: 0.6rem;
+  line-height: 1.3;
+}
+
+.chapter__ja {
+  display: block;
+  font-weight: 500;
+  font-size: clamp(32px, 4vw, 60px);
+  letter-spacing: 0.2em;
+}
+
+.chapter__en {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.6vw, 22px);
+  letter-spacing: 0.18em;
+  color: var(--chapter);
+}
+
+.chapter--f .chapter__en {
+  color: var(--color-night-soft);
+}
+
+.chapter__text {
+  margin-top: 1.4rem;
+  font-size: 15px;
+  line-height: 2.2;
+  text-wrap: pretty;
+}
+
+.chapter__spec {
+  margin-top: 1.8rem;
+  border-top: 1px solid var(--chapter);
+}
+
+.chapter__spec > div {
+  display: grid;
+  grid-template-columns: 7em 1fr;
+  padding-block: 12px;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.chapter--f .chapter__spec > div {
+  border-bottom-color: var(--c6);
+}
+
+.chapter__spec dt {
+  font-family: var(--font-note);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--color-ink-soft);
+}
+
+.chapter--f .chapter__spec dt {
+  color: var(--color-night-soft);
+}
+
+.chapter__spec dd {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.08em;
+}
+
+.chapter__spec small {
+  margin-left: 0.6em;
+  font-family: var(--font-note);
+  font-size: 11px;
+  color: var(--color-ink-soft);
+}
+
+.chapter__nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 1.6rem;
+}
+
+.chapter__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 44px;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  border-bottom: 1px solid var(--chapter);
+}
+
+/* ---------- ご予約・店舗情報 ---------- */
+.field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 22px;
+}
+
+.field label {
+  font-family: var(--font-note);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--color-ink-soft);
+}
+
+.field input,
+.field select {
+  min-height: 48px;
+  padding: 8px 2px;
+  border: 0;
+  border-bottom: 1px solid var(--color-ink);
+  border-radius: 0;
+  background: none;
+  color: var(--color-ink);
+  font-family: var(--font-ja);
+  font-size: 16px;
+}
+
+.reserve__submit {
+  min-height: 52px;
+  padding: 0 40px;
+  border: 1px solid var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-pearl);
+  font-family: var(--font-ja);
+  font-size: 15px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+}
+
+.reserve__message {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--color-ink-soft);
+}
+
+.info__list > div {
+  display: grid;
+  grid-template-columns: 7em 1fr;
+  padding-block: 16px;
+  border-top: 1px solid var(--color-line);
+}
+
+.info__list > div:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.info__list dt {
+  font-family: var(--font-note);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--color-ink-soft);
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 56px);
+  letter-spacing: 0.2em;
+}
+
+.footer__note,
+.footer__copy {
+  margin-top: 1rem;
+  font-family: var(--font-note);
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--color-ink-soft);
+}
+
+.footer__top {
+  margin-left: 1.6em;
+  border-bottom: 1px solid var(--color-ink-soft);
+}
+
+/* ---------- 動き（4つだけ。動かさなくても成立する） ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* 1. 表紙の句ごとの表示 */
+  .cover__phrase {
+    animation: phrase-in 1.2s var(--ease-quiet) both;
+    animation-delay: calc(0.3s + var(--i) * 0.6s);
+  }
+
+  /* 2. UVライトの照り：写真が見えたとき、光の筋が爪の上を一度だけ走る */
+  .chapter__frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 38%, var(--color-sheen) 50%, transparent 62%);
+    transform: translateX(-130%);
+    pointer-events: none;
+  }
+
+  .chapter.is-seen .chapter__frame::after {
+    animation: sheen 1.5s var(--ease-quiet) 0.15s 1 forwards;
+  }
+
+  /* 3. 章の色の切り替え */
+  .pos__num {
+    transition: color 0.5s var(--ease-quiet);
+  }
+}
+
+@keyframes phrase-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes sheen {
+  from { transform: translateX(-130%); }
+  to { transform: translateX(130%); }
+}

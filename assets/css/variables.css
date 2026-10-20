@@ -1,0 +1,53 @@
+:root {
+  --color-pearl: #f6f3ee;
+  --color-ink: #2a2724;
+  --color-ink-soft: #6f6a64;
+  --color-line: #d9d3ca;
+  --color-night: #1d1b1a;
+  --color-night-soft: #a9a39a;
+  --color-sheen: rgba(255, 255, 255, 0.6);
+
+  /* 十本の爪の色（章ごとに差し込まれる） */
+  --c1: #cf553c;
+  --c2: #26408f;
+  --c3: #a07a1c;
+  --c4: #557f45;
+  --c5: #7f62a8;
+  --c6: #3a3633;
+  --c7: #c0302a;
+  --c8: #4a8a7e;
+  --c9: #c46a74;
+  --c10: #1f3fa8;
+  --chapter: var(--color-ink);
+
+  --font-display: "Italiana", "Times New Roman", serif;
+  --font-ja: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-note: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+
+  --margin: 5vw;
+  --gap: 2vw;
+  --header-height: 64px;
+  --space-section: clamp(96px, 14vw, 200px);
+  --space-block: clamp(40px, 5vw, 80px);
+
+  --ease-quiet: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+#ch-01 { --chapter: var(--c1); }
+#ch-02 { --chapter: var(--c2); }
+#ch-03 { --chapter: var(--c3); }
+#ch-04 { --chapter: var(--c4); }
+#ch-05 { --chapter: var(--c5); }
+#ch-06 { --chapter: var(--c6); }
+#ch-07 { --chapter: var(--c7); }
+#ch-08 { --chapter: var(--c8); }
+#ch-09 { --chapter: var(--c9); }
+#ch-10 { --chapter: var(--c10); }
+
+@media (max-width: 767px) {
+  :root {
+    --margin: 24px;
+    --gap: 12px;
+    --header-height: 76px;
+  }
+}
